@@ -1,24 +1,25 @@
+import java.util.ArrayList;
+
 public class GroceryList {
-    private GroceryItemOrder[] item;
+    private ArrayList<GroceryItemOrder> Mylist;
 
     public GroceryList(GroceryItemOrder[] list) {
-        this.item = new GroceryItemOrder[10];
+
+        this.Mylist = new ArrayList<>();
     }
     public void add(GroceryItemOrder item)
     {
-       int i=0;
-        if (this.item.length<10)
+        if (Mylist.size()<10)
         {
-           this.item[i]=item;
-           i++;
+           Mylist.add(item);
         }
     }
     public double getTotalCost()
     {
         int cost=0;
-        for(int i=0;i<item.length;i++)
+        for(int i=0;i< Mylist.size();i++)
         {
-            cost+=item[i].getCost();
+            cost+=Mylist.get(i).price;
         }
          return cost;
     }
