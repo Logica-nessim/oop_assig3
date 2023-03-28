@@ -3,39 +3,21 @@ import java.util.ArrayList;
 public class Main {
     public static void main(String[] args) {
         System.out.println("Hello world!");
-    }
-    //q.2
-    public static double max(ArrayList<Integer> x)
-    {
-        int i,max;
-        if(x.size()==0)
-            return  0;
-        else
-        {
-            max=x.get(0);
-            for(i=1;i<x.size();i++)
-            {
-                if(x.get(i)>max)
-                    max=x.get(i);
+        ArrayList<person> list = new ArrayList<>();
+        list.add(new student("logica", "012378", 3.4));
+        list.add(new student("a", "0456562", 2.5));
+        list.add(new student("b", "585679", 2.0));
+        list.add(new professor("m", "45632", 5));
+        list.add(new professor("e", "586546", 16));
+        list.add(new professor("e", "586546", 19));
+        int i;
+        for (i = 0; i < list.size(); i++) {
+            System.out.println(list.get(i).getVacationDays());
+            if (list.get(i) instanceof student) {
+                ((student) list.get(i)).showGeneralGrade();
             }
-            return max;
-        }
-    }
-    //q.3
-    public static void sort(ArrayList<Integer> x)
-    {
-        int i,j;
-        for (i=0;i<x.size();i++)
-        {
-            for(j=1;i<x.size()-1;j++)
-            {
-                int z;
-                if(x.get(i)<x.get(j))
-                {
-                    z=x.get(i);
-                    x.set(i,x.get(j));
-                    x.set(j,z);
-                }
+            if (list.get(i) instanceof professor) {
+                ((professor) list.get(i)).showAcademicPosition();
             }
         }
     }
